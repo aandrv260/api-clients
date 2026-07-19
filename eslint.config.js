@@ -18,5 +18,16 @@ export default defineConfig([
     languageOptions: {
       globals: globals.browser,
     },
+    rules: {
+      // Matches productivity-frontend: empty interfaces are used deliberately
+      // as extension points on the API client error/config types.
+      '@typescript-eslint/no-empty-object-type': [
+        'error',
+        {
+          allowInterfaces: 'always',
+          allowObjectTypes: 'never',
+        },
+      ],
+    },
   },
 ])
